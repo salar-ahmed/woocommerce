@@ -39,7 +39,7 @@ class WooCartItem {
   String? sku;
   String? permalink;
   List<WooCartItemImages>? images;
-  Map<String, dynamic>? prices;
+  Map<String, dynamic>? price;
   String? linePrice;
   List<String>? variation;
 
@@ -51,7 +51,7 @@ class WooCartItem {
       this.sku,
       this.permalink,
       this.images,
-      this.prices,
+      this.price,
       this.linePrice,
       this.variation});
 
@@ -68,7 +68,7 @@ class WooCartItem {
         images!.add(new WooCartItemImages.fromJson(v));
       });
     }
-    prices = json['prices'];
+    price = json['prices'];
     linePrice = json['line_price'];
     variation = json['variation'].cast<String>();
   }
@@ -84,7 +84,7 @@ class WooCartItem {
     if (this.images != null) {
       data['images'] = this.images!.map((v) => v.toJson()).toList();
     }
-    data['prices'] = this.prices;
+    data['price'] = this.price;
     data['line_price'] = this.linePrice;
     data['variation'] = this.variation;
     return data;
